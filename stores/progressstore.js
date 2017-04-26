@@ -5,12 +5,14 @@ var reflux = require ('reflux');
 module.exports = {
   mixins: [reflux.ListenerMixin],
 
-  eventDependencies: [{
-    eventName: 'widgetProgress',
-    handle: function () {
-      this.handleProgress.apply (this, arguments);
-    }
-  }],
+  eventDependencies: [
+    {
+      eventName: 'widgetProgress',
+      handle: function () {
+        this.handleProgress.apply (this, arguments);
+      },
+    },
+  ],
 
   init: function () {
     var self = this;
@@ -24,5 +26,5 @@ module.exports = {
 
   handleProgress: function (msgData) {
     this.trigger (msgData);
-  }
+  },
 };

@@ -1,71 +1,71 @@
-var React      = require ('react');
-var Reflux     = require ('reflux');
-var Router     = require ('react-router');
-var _          = require ('lodash');
-var mui        = require ('material-ui');
-var MenuItem   = mui.MenuItem;
-var LeftNav    = mui.LeftNav;
+var React = require ('react');
+var Reflux = require ('reflux');
+var Router = require ('react-router');
+var _ = require ('lodash');
+var mui = require ('material-ui');
+var MenuItem = mui.MenuItem;
+var LeftNav = mui.LeftNav;
 
-var activityStore      = Reflux.createStore(require ('../stores/activitystore.js'));
-var componentsActions  = require ('../actions/webComponentsActions.js');
+var activityStore = Reflux.createStore (require ('../stores/activitystore.js'));
+var componentsActions = require ('../actions/webComponentsActions.js');
 var toggleActivityList = componentsActions.toggleActivityList;
 
-var commands           = require ('../actions/xcraftCommands.js');
+var commands = require ('../actions/xcraftCommands.js');
 
 /* TODO: load available activities */
-var headerActivities   = [
+var headerActivities = [
   {type: MenuItem.Types.SUBHEADER, text: 'Availables:'},
   {text: 'List packages', cmd: 'pacman.list', route: 'packagelist'},
-  {type: MenuItem.Types.SUBHEADER, text: 'Currents:'}
+  {type: MenuItem.Types.SUBHEADER, text: 'Currents:'},
 ];
 
-var ActivityList       = React.createClass ({
-
+var ActivityList = React.createClass ({
   mixins: [Router.Navigation, Reflux.ListenerMixin],
 
   propTypes: {
-    name: React.PropTypes.string
+    name: React.PropTypes.string,
   },
 
   getInitialState: function () {
     return {activities: headerActivities};
   },
 
-  onActivityChange: function(newActivities) {
+  onActivityChange: function (newActivities) {
     var activities = _.union (headerActivities, newActivities);
-    this.setState({
-      activities: activities
+    this.setState ({
+      activities: activities,
     });
   },
 
-  onToggleActivityList: function() {
-    this.refs.activityList.toggle();
+  onToggleActivityList: function () {
+    this.refs.activityList.toggle ();
   },
 
-  componentDidMount: function() {
-    this.listenTo(activityStore, this.onActivityChange);
-    this.listenTo(toggleActivityList, this.onToggleActivityList);
+  componentDidMount: function () {
+    this.listenTo (activityStore, this.onActivityChange);
+    this.listenTo (toggleActivityList, this.onToggleActivityList);
   },
 
   render: function () {
-    var header = (<h3>activities</h3>);
+    var header = <h3>activities</h3>;
     var activities = [];
     if (this.state.activities) {
       activities = this.state.activities;
     }
-    return (
+    return  (
       <LeftNav
         ref="activityList"
         header={header}
         docked={false}
         isInitiallyOpen={false}
         onChange={this._onChangeActivity}
-        menuItems={activities} />
+        menuItems={activities}
+      />
     );
   },
 
   _onChangeActivity: function (e, key, activity) {
-    this.transitionTo(activity.route);
+    this.transitionTo (activity.route);
     if (activity.id) {
       /* restore activity case*/
       return;
@@ -73,13 +73,12 @@ var ActivityList       = React.createClass ({
     if (activity.cmd) {
       /*new activity case*/
       var cmdData = {
-        cmd: activity.cmd
+        cmd: activity.cmd,
       };
       commands.send (cmdData);
       return;
     }
-  }
-
+  },
 });
 
 module.exports = ActivityList;

@@ -1,7 +1,7 @@
 'use strict';
 
 var reflux = require ('reflux');
-var clc    = require ('cli-color');
+var clc = require ('cli-color');
 
 var textStore = reflux.createStore (require ('../stores/textstore.js'));
 
@@ -21,6 +21,8 @@ module.exports = function () {
 
     process.stdout.write (clc.erase.lineLeft);
     process.stdout.write (clc.move.left (clc.windowSize.width - 1));
-    console.log (log.decorate (mode, data.prefix, data.mod, data.text, null, stripBegin));
+    console.log (
+      log.decorate (mode, data.prefix, data.mod, data.text, null, stripBegin)
+    );
   });
 };

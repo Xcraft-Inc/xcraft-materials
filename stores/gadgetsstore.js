@@ -1,16 +1,18 @@
 'use strict';
 
-var reflux     = require ('reflux');
+var reflux = require ('reflux');
 
 module.exports = {
   mixins: [reflux.ListenerMixin],
 
-  eventDependencies: [{
-    eventName: 'gadgetList',
-    handle: function () {
-      this.handleGadgetList.apply (this, arguments);
-    }
-  }],
+  eventDependencies: [
+    {
+      eventName: 'gadgetList',
+      handle: function () {
+        this.handleGadgetList.apply (this, arguments);
+      },
+    },
+  ],
 
   init: function () {
     var self = this;
@@ -24,5 +26,5 @@ module.exports = {
 
   handleGadgetList: function (msgData) {
     this.trigger (msgData);
-  }
+  },
 };

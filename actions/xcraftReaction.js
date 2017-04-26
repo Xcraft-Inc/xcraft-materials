@@ -2,7 +2,6 @@
 
 var xUtils = require ('xcraft-core-utils');
 
-
 var listenerAxon = function (commands, events, busClient) {
   const xLog = require ('xcraft-core-log') ('materials');
 

@@ -5,12 +5,14 @@ var reflux = require ('reflux');
 module.exports = {
   mixins: [reflux.ListenerMixin],
 
-  eventDependencies: [{
-    eventName: 'pacmanList',
-    handle: function () {
-      this.handlePackageList.apply (this, arguments);
-    }
-  }],
+  eventDependencies: [
+    {
+      eventName: 'pacmanList',
+      handle: function () {
+        this.handlePackageList.apply (this, arguments);
+      },
+    },
+  ],
 
   init: function () {
     var self = this;
@@ -24,5 +26,5 @@ module.exports = {
 
   handlePackageList: function (msgData) {
     this.trigger (msgData);
-  }
+  },
 };

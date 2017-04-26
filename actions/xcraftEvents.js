@@ -1,16 +1,15 @@
 'use strict';
 
 var reflux = require ('reflux');
-var xFs    = require ('xcraft-core-fs');
-var path   = require ('path');
+var xFs = require ('xcraft-core-fs');
+var path = require ('path');
 
 var modules = [];
 var eventsDeps = [];
 
-
 var loadStoreEventDependencies = function () {
-  var modulePath   = path.join (__dirname, '../stores');
-  var filterRegex  = /store\.js$/;
+  var modulePath = path.join (__dirname, '../stores');
+  var filterRegex = /store\.js$/;
   var modulesFiles = xFs.ls (modulePath, filterRegex);
 
   modulesFiles.forEach (function (fileName) {
@@ -32,13 +31,16 @@ var loadStoreEventDependencies4Web = function () {
     var storeId = req.resolve (storesRequire[index]);
     var store = __webpack_require__ (storeId); /* jscs:ignore */
     if (store.hasOwnProperty ('eventDependencies')) {
-      for (var depIndex = 0; depIndex < store.eventDependencies.length; ++depIndex) {
+      for (
+        var depIndex = 0;
+        depIndex < store.eventDependencies.length;
+        ++depIndex
+      ) {
         eventsDeps.push (store.eventDependencies[depIndex].eventName);
       }
     }
   }
 };
-
 
 if (typeof __WEBPACK__ !== 'undefined') {
   loadStoreEventDependencies4Web ();

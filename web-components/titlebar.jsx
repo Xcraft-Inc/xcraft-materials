@@ -1,14 +1,13 @@
-var React      = require ('react');
-var mui        = require ('material-ui');
+var React = require ('react');
+var mui = require ('material-ui');
 
-var Classable    = mui.Mixins.Classable;
-var AppBar       = mui.AppBar;
-var FlatButton   = mui.FlatButton;
-var IButton      = mui.IconButton;
-var Toolbar      = mui.Toolbar;
+var Classable = mui.Mixins.Classable;
+var AppBar = mui.AppBar;
+var FlatButton = mui.FlatButton;
+var IButton = mui.IconButton;
+var Toolbar = mui.Toolbar;
 var ToolbarGroup = mui.ToolbarGroup;
-var Titlebar     = React.createClass ({
-
+var Titlebar = React.createClass ({
   mixins: [Classable],
 
   propTypes: {
@@ -17,46 +16,67 @@ var Titlebar     = React.createClass ({
     minimizeAction: React.PropTypes.func,
     maximizeAction: React.PropTypes.func,
     closeAction: React.PropTypes.func,
-    menuAction: React.PropTypes.func
+    menuAction: React.PropTypes.func,
   },
 
   render: function () {
-    var maximizeIcon = this.props.isMaximized ? 'navigation-fullscreen-exit' : 'navigation-fullscreen';
+    var maximizeIcon = this.props.isMaximized
+      ? 'navigation-fullscreen-exit'
+      : 'navigation-fullscreen';
     var maximizeTip = this.props.isMaximized ? 'Exit fullscreen' : 'Fullscreen';
 
-    return (
-      <AppBar title={this.props.title} zDepth={0} onMenuIconButtonTouchTap={this._handleMenuTouchTap} className="xc-titlebar-bar">
-        <IButton className="xc-titlebar-actions" icon="navigation-close" tooltip="Exit" onTouchTap={this._handleCloseTouchTap} />
-        <IButton className="xc-titlebar-actions" icon={maximizeIcon} tooltip={maximizeTip} onTouchTap={this._handleMaximizeTouchTap} />
-        <IButton className="xc-titlebar-actions" icon="navigation-expand-more" tooltip="Minimize" onTouchTap={this._handleMiminizeTouchTap} />
+    return  (
+      <AppBar
+        title={this.props.title}
+        zDepth={0}
+        onMenuIconButtonTouchTap={this._handleMenuTouchTap}
+        className="xc-titlebar-bar"
+      >
+        <IButton
+          className="xc-titlebar-actions"
+          icon="navigation-close"
+          tooltip="Exit"
+          onTouchTap={this._handleCloseTouchTap}
+        />
+        <IButton
+          className="xc-titlebar-actions"
+          icon={maximizeIcon}
+          tooltip={maximizeTip}
+          onTouchTap={this._handleMaximizeTouchTap}
+        />
+        <IButton
+          className="xc-titlebar-actions"
+          icon="navigation-expand-more"
+          tooltip="Minimize"
+          onTouchTap={this._handleMiminizeTouchTap}
+        />
       </AppBar>
     );
   },
 
-  _handleMenuTouchTap: function() {
+  _handleMenuTouchTap: function () {
     if (this.props.menuAction) {
       this.props.menuAction ();
     }
   },
 
-  _handleCloseTouchTap: function() {
+  _handleCloseTouchTap: function () {
     if (this.props.closeAction) {
       this.props.closeAction ();
     }
   },
 
-  _handleMiminizeTouchTap: function() {
+  _handleMiminizeTouchTap: function () {
     if (this.props.minimizeAction) {
       this.props.minimizeAction ();
     }
   },
 
-  _handleMaximizeTouchTap: function() {
+  _handleMaximizeTouchTap: function () {
     if (this.props.maximizeAction) {
       this.props.maximizeAction ();
     }
-  }
-
+  },
 });
 
 module.exports = Titlebar;

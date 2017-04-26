@@ -1,9 +1,8 @@
 'use strict';
 
-var clc            = require ('cli-color');
-var reflux         = require ('reflux');
-var activityStore  = reflux.createStore (require ('../stores/activitystore.js'));
-
+var clc = require ('cli-color');
+var reflux = require ('reflux');
+var activityStore = reflux.createStore (require ('../stores/activitystore.js'));
 
 function printList (list) {
   const keys = Object.keys (list);

@@ -8,15 +8,17 @@ module.exports = function () {
 
   display.listen (function () {
     console.log ();
-    console.log ('             ' +
-                 clc.blackBright ('.') +
-                 clc.white (':') +
-                 clc.green ('G') +
-                 clc.greenBright ('ame') +
-                 clc.green ('O') +
-                 clc.greenBright ('ver') +
-                 clc.white (':') +
-                 clc.blackBright ('.'));
+    console.log (
+      '             ' +
+        clc.blackBright ('.') +
+        clc.white (':') +
+        clc.green ('G') +
+        clc.greenBright ('ame') +
+        clc.green ('O') +
+        clc.greenBright ('ver') +
+        clc.white (':') +
+        clc.blackBright ('.')
+    );
     console.log ();
   });
 };
