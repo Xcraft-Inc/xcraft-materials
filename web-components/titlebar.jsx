@@ -1,5 +1,5 @@
-var React = require ('react');
-var mui = require ('material-ui');
+var React = require('react');
+var mui = require('material-ui');
 
 var Classable = mui.Mixins.Classable;
 var AppBar = mui.AppBar;
@@ -7,7 +7,7 @@ var FlatButton = mui.FlatButton;
 var IButton = mui.IconButton;
 var Toolbar = mui.Toolbar;
 var ToolbarGroup = mui.ToolbarGroup;
-var Titlebar = React.createClass ({
+var Titlebar = React.createClass({
   mixins: [Classable],
 
   propTypes: {
@@ -19,13 +19,13 @@ var Titlebar = React.createClass ({
     menuAction: React.PropTypes.func,
   },
 
-  render: function () {
+  render: function() {
     var maximizeIcon = this.props.isMaximized
       ? 'navigation-fullscreen-exit'
       : 'navigation-fullscreen';
     var maximizeTip = this.props.isMaximized ? 'Exit fullscreen' : 'Fullscreen';
 
-    return  (
+    return (
       <AppBar
         title={this.props.title}
         zDepth={0}
@@ -54,27 +54,27 @@ var Titlebar = React.createClass ({
     );
   },
 
-  _handleMenuTouchTap: function () {
+  _handleMenuTouchTap: function() {
     if (this.props.menuAction) {
-      this.props.menuAction ();
+      this.props.menuAction();
     }
   },
 
-  _handleCloseTouchTap: function () {
+  _handleCloseTouchTap: function() {
     if (this.props.closeAction) {
-      this.props.closeAction ();
+      this.props.closeAction();
     }
   },
 
-  _handleMiminizeTouchTap: function () {
+  _handleMiminizeTouchTap: function() {
     if (this.props.minimizeAction) {
-      this.props.minimizeAction ();
+      this.props.minimizeAction();
     }
   },
 
-  _handleMaximizeTouchTap: function () {
+  _handleMaximizeTouchTap: function() {
     if (this.props.maximizeAction) {
-      this.props.maximizeAction ();
+      this.props.maximizeAction();
     }
   },
 });

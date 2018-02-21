@@ -1,37 +1,37 @@
-var React = require ('react');
-var Reflux = require ('reflux');
-var mui = require ('material-ui');
-var bootstrap = require ('react-bootstrap');
-var md5 = require ('xcraft-core-utils').md5;
+var React = require('react');
+var Reflux = require('reflux');
+var mui = require('material-ui');
+var bootstrap = require('react-bootstrap');
+var md5 = require('xcraft-core-utils').md5;
 
 var Jumbo = bootstrap.Jumbotron;
 var Panel = bootstrap.Panel;
 var Paper = mui.Paper;
 var DropDownMenu = mui.DropDownMenu;
 
-var packagesStore = Reflux.createStore (require ('../stores/packagesstore.js'));
+var packagesStore = Reflux.createStore(require('../stores/packagesstore.js'));
 
-var PackageList = React.createClass ({
+var PackageList = React.createClass({
   mixins: [Reflux.ListenerMixin],
 
   propTypes: {},
 
-  getInitialState: function () {
+  getInitialState: function() {
     return {packages: []};
   },
 
-  componentDidMount: function () {
-    this.listenTo (packagesStore, this.onPackagesListChange);
+  componentDidMount: function() {
+    this.listenTo(packagesStore, this.onPackagesListChange);
   },
 
-  onPackagesListChange: function (newList) {
-    this.setState ({
+  onPackagesListChange: function(newList) {
+    this.setState({
       packages: newList,
     });
   },
 
-  render: function () {
-    return  (
+  render: function() {
+    return (
       <div className="bs-component">
         <Jumbo className="jumbotron">
           <h1>Xcraft Packages</h1>
@@ -39,15 +39,13 @@ var PackageList = React.createClass ({
           <a className="btn btn-primary btn-lg">Clean</a>
         </Jumbo>
         <div className="row">
-          <div className="list-group">
-            {this._renderPackages ()}
-          </div>
+          <div className="list-group">{this._renderPackages()}</div>
         </div>
       </div>
     );
   },
 
-  _renderPackages: function () {
+  _renderPackages: function() {
     var packages = [];
     var packageItem;
     var gravatar;
@@ -66,7 +64,7 @@ var PackageList = React.createClass ({
     for (var i = 0; i < this.state.packages.length; i++) {
       packageItem = this.state.packages[i];
 
-      headerComponent =  (
+      headerComponent = (
         <h2>
           <i className="mdi-action-settings" /> {packageItem.name}
           <b> v{packageItem.version}</b>
@@ -75,25 +73,25 @@ var PackageList = React.createClass ({
 
       gravatar =
         'http://www.gravatar.com/avatar/' +
-        md5 (packageItem.maintainer.email.trim ().toLowerCase ());
+        md5(packageItem.maintainer.email.trim().toLowerCase());
 
       dependenciesComponent = [];
-      if (Object.keys (packageItem.dependency).length === 0) {
-        dependenciesComponent.push (
+      if (Object.keys(packageItem.dependency).length === 0) {
+        dependenciesComponent.push(
           <h6 className="list-group-item-text"> No deps.</h6>
         );
       } else {
-        Object.keys (packageItem.dependency).forEach (function (dep) {
-          dependencyComponent =  (
+        Object.keys(packageItem.dependency).forEach(function(dep) {
+          dependencyComponent = (
             <h6 className="list-group-item-text">
               <span className="label label-success">{dep}</span>
             </h6>
           );
-          dependenciesComponent.push (dependencyComponent);
+          dependenciesComponent.push(dependencyComponent);
         });
       }
 
-      itemComponent =  (
+      itemComponent = (
         <div className="list-group-item">
           <div className="row-picture">
             <img className="circle" src={gravatar} alt="icon" />
@@ -125,8 +123,8 @@ var PackageList = React.createClass ({
           </div>
         </div>
       );
-      packages.push (itemComponent);
-      packages.push (<div class="list-group-separator" />);
+      packages.push(itemComponent);
+      packages.push(<div class="list-group-separator" />);
     }
     return packages;
   },

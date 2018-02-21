@@ -1,24 +1,55 @@
 @mixin shadow {
-  background: -moz-linear-gradient(left,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0)));
-  background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
-  background: -o-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
-  background: -ms-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
-  background: linear-gradient(to right,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 );
+  background: -moz-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0%, rgba(0, 0, 0, 0.65)),
+    color-stop(100%, rgba(0, 0, 0, 0))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr='#a6000000',
+      endColorstr='#00000000',
+      GradientType=1
+    );
 }
 
-$backgroundDark: #00410B;
-$backgroundLight: #10621E;
-$backgroundHighlight: #51A35F;
-$backgroundActive: #82C38D;
+$backgroundDark: #00410b;
+$backgroundLight: #10621e;
+$backgroundHighlight: #51a35f;
+$backgroundActive: #82c38d;
 $textColor: white;
 
-$menuSpeed: .5s;
-$highlightSpeed: .3s;
+$menuSpeed: 0.5s;
+$highlightSpeed: 0.3s;
 
 /* Resets */
-body, ul {
+body,
+ul {
   margin: 0;
   padding: 0;
 }
@@ -34,7 +65,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  padding: .4em 0;
+  padding: 0.4em 0;
   background: $backgroundLight;
   color: $textColor;
   text-align: center;
@@ -57,8 +88,8 @@ body {
     position: relative;
     display: block;
     min-width: 5em;
-    margin-bottom: .4em;
-    padding: .4em;
+    margin-bottom: 0.4em;
+    padding: 0.4em;
     line-height: 100%;
     /* Reset font-size */
     font-size: 16px;
@@ -74,12 +105,12 @@ body {
 
   i {
     display: block;
-    margin-bottom: .2em;
+    margin-bottom: 0.2em;
     font-size: 2em;
   }
 
   span {
-    font-size: .625em;
+    font-size: 0.625em;
     font-family: sans-serif;
     text-transform: uppercase;
   }
@@ -113,7 +144,7 @@ body {
 
     /* Add a shadow to the top-level link */
     > a:after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       bottom: 0;

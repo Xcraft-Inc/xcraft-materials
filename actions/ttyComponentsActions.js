@@ -1,5 +1,5 @@
 'use strict';
 
-var reflux = require ('reflux');
+var reflux = require('reflux');
 
-module.exports = reflux.createActions (['displayLogo', 'displayGameOver']);
+module.exports = reflux.createActions(['displayLogo', 'displayGameOver']);

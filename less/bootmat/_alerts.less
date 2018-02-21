@@ -1,16 +1,21 @@
 .alert {
-    border: 0px;
-    border-radius: 0;
-    a, .alert-link {
-        color: #FFFFFF;
+  border: 0px;
+  border-radius: 0;
+  a,
+  .alert-link {
+    color: #ffffff;
+  }
+  .variations(~'', background-color, #FFFFFF);
+  &-info,
+  &-danger,
+  &-warning,
+  &-success {
+    color: #ffffff;
+  }
+  &-default {
+    a,
+    .alert-link {
+      color: #000000;
     }
-    .variations(~"", background-color, #FFFFFF);
-    &-info, &-danger, &-warning, &-success {
-        color: #FFFFFF;
-    }
-    &-default {
-        a, .alert-link {
-            color: #000000;
-        }
-    }
+  }
 }

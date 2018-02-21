@@ -1,8 +1,8 @@
 'use strict';
 
-var reflux = require ('reflux');
+var reflux = require('reflux');
 
-module.exports = reflux.createActions ([
+module.exports = reflux.createActions([
   'toggleActivityList',
   'toggleGadgetList',
 ]);

@@ -1,23 +1,19 @@
-require ('../sass/launcher.scss');
-var React = require ('react');
-var ipc = require ('ipc');
-var remote = require ('remote');
-var Launcher = React.createClass ({
+require('../sass/launcher.scss');
+var React = require('react');
+var ipc = require('ipc');
+var remote = require('remote');
+var Launcher = React.createClass({
   mixins: [],
 
   propTypes: {
     menuEntries: React.PropTypes.array,
   },
 
-  render: function () {
-    return  (
-      <ul className="drawer">
-        {this._renderLauncher ()}
-      </ul>
-    );
+  render: function() {
+    return <ul className="drawer">{this._renderLauncher()}</ul>;
   },
 
-  _renderLauncher: function () {
+  _renderLauncher: function() {
     var menuEntry;
     var menuEntryComponent, itemComponent, itemListComponent;
     var launcher = [];
@@ -27,7 +23,7 @@ var Launcher = React.createClass ({
       itemListComponent = [];
       for (var ii = 0; ii < menuEntry.items.length; ii++) {
         item = menuEntry.items[ii];
-        itemComponent =  (
+        itemComponent = (
           <li key={ii}>
             <a href="#" onTouchTap={item.action}>
               <i className={item.icon} />
@@ -35,21 +31,19 @@ var Launcher = React.createClass ({
             </a>
           </li>
         );
-        itemListComponent.push (itemComponent);
+        itemListComponent.push(itemComponent);
       }
 
-      menuEntryComponent =  (
+      menuEntryComponent = (
         <li key={i} index={i}>
           <a href="#">
             <i className={menuEntry.icon} />
             <span>{menuEntry.name}</span>
           </a>
-          <ul>
-            {itemListComponent}
-          </ul>
+          <ul>{itemListComponent}</ul>
         </li>
       );
-      launcher.push (menuEntryComponent);
+      launcher.push(menuEntryComponent);
     }
     return launcher;
   },
