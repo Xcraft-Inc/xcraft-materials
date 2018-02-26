@@ -9,7 +9,7 @@ function printList(list) {
   keys.forEach(function(id) {
     const orc = list[id].orc;
     const cmd = list[id].cmd;
-    const al1 = new Array(20 - orc.length).join(' ');
+    const al1 = new Array(60 - orc.length).join(' ');
     const al2 = new Array(20 - id.length).join(' ');
     console.log(` ${clc.blackBright('°')} ${orc}${al1}${id}${al2}${cmd}`);
   });
