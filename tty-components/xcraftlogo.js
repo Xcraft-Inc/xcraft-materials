@@ -6,5 +6,5 @@ var actions = require('../actions/ttyComponentsActions.js');
 var displayLogo = actions.displayLogo;
 
 module.exports = function() {
-  displayLogo.listen(() => log.graffiti('Xcraft'));
+  displayLogo.listen(() => log.graffiti('Xcraft', console.log));
 };
