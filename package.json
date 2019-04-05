@@ -1,6 +1,6 @@
 {
   "name": "xcraft-materials",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Xcraft Components",
   "main": "xcraft-materials.js",
   "keywords": ["xcraft", "materials"],
