@@ -1,9 +1,12 @@
 {
   "name": "xcraft-materials",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Xcraft Components",
   "main": "xcraft-materials.js",
-  "keywords": ["xcraft", "materials"],
+  "keywords": [
+    "xcraft",
+    "materials"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Xcraft-Inc/xcraft-materials.git"
