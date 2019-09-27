@@ -41,13 +41,13 @@ var listenerIpc = function(commands, events) {
   });
 };
 
-module.exports = function(response) {
+module.exports = function(resp) {
   var commands = require('./xcraftCommands.js');
   var events;
 
-  if (response) {
+  if (resp) {
     events = require('./xcraftEvents.js');
-    listenerAxon(commands, events, response);
+    listenerAxon(commands, events, resp);
   } else {
     events = require('./xcraftEvents.js');
     listenerIpc(commands, events);
