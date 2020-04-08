@@ -5,12 +5,12 @@ var clc = require('cli-color');
 
 var textStore = reflux.createStore(require('../stores/textstore.js'));
 
-module.exports = function() {
+module.exports = function () {
   var log = require('xcraft-core-utils').log;
 
   let previous = null;
 
-  textStore.listen(function(mode, data) {
+  textStore.listen(function (mode, data) {
     const begin = mode + data.prefix + data.mod;
     const stripBegin = begin === previous;
 

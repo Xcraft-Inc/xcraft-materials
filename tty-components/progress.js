@@ -58,7 +58,7 @@ function ProgressInf(format) {
 
 util.inherits(ProgressInf, Progress);
 
-ProgressInf.prototype.tick = function(tokens) {
+ProgressInf.prototype.tick = function (tokens) {
   this._tick = -this._tick;
   this.chars.complete = this._waitChars[
     this._nextChar++ % this._waitChars.length
@@ -70,7 +70,7 @@ ProgressInf.prototype.tick = function(tokens) {
 
 /*****************************************************************************/
 
-module.exports = function() {
+module.exports = function () {
   var format = util.format(
     '%s [%s%s] %s: %s%s%s -- %s',
     ':prefix',
@@ -90,7 +90,7 @@ module.exports = function() {
 
   var lastRatio = -1;
 
-  progressStore.listen(function(data) {
+  progressStore.listen(function (data) {
     var ratio = data.position / data.length;
 
     if (ratio > 1.0) {

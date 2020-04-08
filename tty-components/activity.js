@@ -6,7 +6,7 @@ var activityStore = reflux.createStore(require('../stores/activitystore.js'));
 
 function printList(list) {
   const keys = Object.keys(list);
-  keys.forEach(function(id) {
+  keys.forEach(function (id) {
     const orc = list[id].orc;
     const cmd = list[id].cmd;
     const al1 = new Array(60 - orc.length).join(' ');
@@ -18,8 +18,8 @@ function printList(list) {
   }
 }
 
-module.exports = function() {
-  activityStore.listen(function(status) {
+module.exports = function () {
+  activityStore.listen(function (status) {
     console.log();
     console.log(clc.yellow(' Waiting'));
 

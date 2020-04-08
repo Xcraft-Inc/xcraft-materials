@@ -5,8 +5,8 @@ var clc = require('cli-color');
 
 var motdStore = reflux.createStore(require('../stores/motdstore.js'));
 
-module.exports = function() {
-  motdStore.listen(function(data) {
+module.exports = function () {
+  motdStore.listen(function (data) {
     console.log(' Welcome aboard %s!', clc.blackBright(data.orcName));
     console.log();
     console.log(' Server:        %s', clc.blackBright(data.server));

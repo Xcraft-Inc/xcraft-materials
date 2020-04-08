@@ -2,7 +2,7 @@
 
 var xcraftReaction = require('./actions/xcraftReaction.js');
 
-module.exports = function(type, reaction, busClient) {
+module.exports = function (type, reaction, busClient) {
   if (reaction) {
     if (busClient) {
       xcraftReaction(busClient);

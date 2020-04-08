@@ -7,16 +7,16 @@ var path = require('path');
 var modules = [];
 var eventsDeps = [];
 
-var loadStoreEventDependencies = function() {
+var loadStoreEventDependencies = function () {
   var modulePath = path.join(__dirname, '../stores');
   var filterRegex = /store\.js$/;
   var modulesFiles = xFs.ls(modulePath, filterRegex);
 
-  modulesFiles.forEach(function(fileName) {
+  modulesFiles.forEach(function (fileName) {
     modules[fileName] = require(path.join(modulePath, fileName));
 
     if (modules[fileName].hasOwnProperty('eventDependencies')) {
-      modules[fileName].eventDependencies.forEach(function(dep) {
+      modules[fileName].eventDependencies.forEach(function (dep) {
         eventsDeps.push(dep.eventName);
       });
     }
@@ -24,7 +24,7 @@ var loadStoreEventDependencies = function() {
 };
 
 /* WebPack resolving method */
-var loadStoreEventDependencies4Web = function() {
+var loadStoreEventDependencies4Web = function () {
   var req = require.context('../stores/', false, /store\.js$/);
   var storesRequire = req.keys();
   for (var index = 0; index < storesRequire.length; ++index) {

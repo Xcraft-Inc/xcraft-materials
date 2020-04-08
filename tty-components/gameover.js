@@ -3,10 +3,10 @@
 var actions = require('../actions/ttyComponentsActions.js');
 var display = actions.displayGameOver;
 
-module.exports = function() {
+module.exports = function () {
   var clc = require('cli-color');
 
-  display.listen(function() {
+  display.listen(function () {
     console.log();
     console.log(
       '             ' +

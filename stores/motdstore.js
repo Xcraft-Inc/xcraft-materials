@@ -8,23 +8,23 @@ module.exports = {
   eventDependencies: [
     {
       eventName: 'motd',
-      handle: function() {
+      handle: function () {
         this.handleMotd.apply(this, arguments);
       },
     },
   ],
 
-  init: function() {
+  init: function () {
     var self = this;
     var events = require('../actions/xcraftEvents.js');
 
-    this.eventDependencies.forEach(function(dep) {
+    this.eventDependencies.forEach(function (dep) {
       var action = events[dep.eventName];
       self.listenTo(action, dep.handle);
     });
   },
 
-  handleMotd: function(msgData) {
+  handleMotd: function (msgData) {
     this.trigger(msgData);
   },
 };
