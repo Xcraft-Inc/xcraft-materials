@@ -38,6 +38,14 @@ module.exports = {
         this.handleText.apply(this, args);
       },
     },
+    {
+      eventName: 'widgetTextDbg',
+      handle: function () {
+        var args = Array.prototype.slice.call(arguments);
+        args.unshift('dbg');
+        this.handleText.apply(this, args);
+      },
+    },
   ],
 
   init: function () {
