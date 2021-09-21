@@ -19,8 +19,8 @@
     "progress-with-fix": "^1.1.10",
     "reflux": "^0.2.5",
     "xcraft-core-fs": "^2.0.0",
-    "xcraft-core-log": "^1.0.0",
-    "xcraft-core-utils": "^2.0.0"
+    "xcraft-core-log": "^2.0.0",
+    "xcraft-core-utils": "^4.0.0"
   },
   "bugs": {
     "url": "https://github.com/Xcraft-Inc/xcraft-materials/issues"
