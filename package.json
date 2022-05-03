@@ -14,7 +14,6 @@
   "author": "Samuel Loup & Mathieu Schroeter",
   "license": "MIT",
   "dependencies": {
-    "ascii-table": "0.0.8",
     "cli-color": "^1.0.0",
     "progress-with-fix": "^1.1.10",
     "reflux": "^0.2.5",

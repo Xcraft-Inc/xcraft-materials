@@ -23,7 +23,6 @@ module.exports = function (type, reaction, busClient) {
         Motd: require('./tty-components/motd.js'),
         GameOver: require('./tty-components/gameover.js'),
         Activity: require('./tty-components/activity.js'),
-        PackageList: require('./tty-components/packagelist.js'),
         Text: require('./tty-components/text.js'),
         Progress: require('./tty-components/progress.js'),
         Actions: require('./actions/ttyComponentsActions.js'),
