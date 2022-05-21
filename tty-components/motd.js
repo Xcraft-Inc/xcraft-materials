@@ -14,7 +14,7 @@ module.exports = function () {
     console.log(' Events port:   %s', clc.blackBright(data.eventsPort));
     console.log();
     console.log(
-      ' Here the %s of the %s...',
+      ' This is the %s of the %s...',
       clc.blackBright(data.motd.unit),
       clc.blackBright(data.motd.race)
     );
