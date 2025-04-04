@@ -2,22 +2,21 @@
 
 var actions = require('../actions/ttyComponentsActions.js');
 var display = actions.displayGameOver;
+var colors = require('picocolors').createColors(true);
 
 module.exports = function () {
-  var clc = require('cli-color');
-
   display.listen(function () {
     console.log();
     console.log(
       '             ' +
-        clc.blackBright('.') +
-        clc.white(':') +
-        clc.green('G') +
-        clc.greenBright('ame') +
-        clc.green('O') +
-        clc.greenBright('ver') +
-        clc.white(':') +
-        clc.blackBright('.')
+        colors.blackBright('.') +
+        colors.white(':') +
+        colors.green('G') +
+        colors.greenBright('ame') +
+        colors.green('O') +
+        colors.greenBright('ver') +
+        colors.white(':') +
+        colors.blackBright('.')
     );
     console.log();
   });

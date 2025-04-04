@@ -2,7 +2,7 @@
 
 var util = require('util');
 var reflux = require('reflux');
-var clc = require('cli-color');
+var colors = require('picocolors').createColors(true);
 var Progress = require('progress-with-fix');
 
 var log = require('xcraft-core-utils').log;
@@ -16,7 +16,8 @@ var progressStore = reflux.createStore(require('../stores/progressstore.js'));
  * @param {string} format
  */
 function ProgressBar(format) {
-  var width = parseInt(clc.windowSize.width / 2);
+  // https://github.com/medikoo/cli-color/blob/b9080d464c76930b3cbfb7f281999fcc26f39fb1/window-size.js#L6
+  var width = parseInt((process.stdout.columns || 0) / 2);
   if (width > 80) {
     width = 80;
   }
@@ -74,17 +75,17 @@ module.exports = function () {
   var format = util.format(
     '%s [%s%s] %s: %s%s%s -- %s',
     ':prefix',
-    clc.whiteBright.bold(':mod'),
-    clc.blackBright(':empty'),
-    clc.greenBright.bold('Info'),
-    clc.whiteBright('['),
-    clc.blackBright(':bar'),
-    clc.whiteBright(']'),
-    clc.greenBright(':topic')
+    colors.whiteBright(colors.bold(':mod')),
+    colors.blackBright(':empty'),
+    colors.greenBright(colors.bold('Info')),
+    colors.whiteBright('['),
+    colors.blackBright(':bar'),
+    colors.whiteBright(']'),
+    colors.greenBright(':topic')
   );
 
   var progressBar = new ProgressBar(
-    format + ' ' + clc.whiteBright(':percent') + ' :etas '
+    format + ' ' + colors.whiteBright(':percent') + ' :etas '
   );
   var progressInf = new ProgressInf(format + ' ... ');
 
