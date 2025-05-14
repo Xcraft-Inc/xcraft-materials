@@ -1,6 +1,6 @@
 'use strict';
 
-var reflux = require('reflux');
+var reflux = require('xcraft-reflux');
 
 var textStore = reflux.createStore(require('../stores/textstore.js'));
 

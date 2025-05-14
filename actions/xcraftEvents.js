@@ -1,6 +1,6 @@
 'use strict';
 
-var reflux = require('reflux');
+var reflux = require('xcraft-reflux');
 var xFs = require('xcraft-core-fs');
 var path = require('path');
 

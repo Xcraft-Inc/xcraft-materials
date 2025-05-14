@@ -1,6 +1,6 @@
 'use strict';
 
-var reflux = require('reflux');
+var reflux = require('xcraft-reflux');
 var colors = require('picocolors').createColors(true);
 
 var motdStore = reflux.createStore(require('../stores/motdstore.js'));

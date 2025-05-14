@@ -1,7 +1,7 @@
 'use strict';
 
 var util = require('util');
-var reflux = require('reflux');
+var reflux = require('xcraft-reflux');
 var colors = require('picocolors').createColors(true);
 var Progress = require('progress-with-fix');
 

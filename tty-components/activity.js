@@ -1,7 +1,7 @@
 'use strict';
 
 var colors = require('picocolors').createColors(true);
-var reflux = require('reflux');
+var reflux = require('xcraft-reflux');
 var activityStore = reflux.createStore(require('../stores/activitystore.js'));
 
 function printList(list) {

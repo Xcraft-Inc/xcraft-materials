@@ -16,7 +16,7 @@
   "dependencies": {
     "picocolors": "^1.1.1",
     "progress-with-fix": "^1.1.10",
-    "reflux": "^0.2.5",
+    "xcraft-reflux": "^7.0.0",
     "xcraft-core-fs": "^2.0.0",
     "xcraft-core-log": "^2.0.0",
     "xcraft-core-utils": "^4.0.0"
