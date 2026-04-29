@@ -73,8 +73,9 @@ ProgressInf.prototype.tick = function (tokens) {
 
 module.exports = function () {
   var format = util.format(
-    '%s [%s%s] %s: %s%s%s -- %s',
+    '%s %s [%s%s] %s: %s%s%s -- %s',
     ':prefix',
+    ':localTime',
     colors.whiteBright(colors.bold(':mod')),
     colors.blackBright(':empty'),
     colors.greenBright(colors.bold('Info')),
@@ -112,9 +113,11 @@ module.exports = function () {
       len = 0;
     }
 
+    const localTime = new Date().toLocaleTimeString().slice(0, 5);
     if (data.length < 0) {
       progressInf.tick({
         prefix: data.prefix,
+        localTime,
         mod: data.mod,
         empty: new Array(len + 1).join('.'),
         topic: data.topic,
@@ -122,6 +125,7 @@ module.exports = function () {
     } else {
       progressBar.update(ratio, {
         prefix: data.prefix,
+        localTime,
         mod: data.mod,
         empty: new Array(len + 1).join('.'),
         topic: data.topic,
