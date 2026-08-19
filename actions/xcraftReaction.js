@@ -1,8 +1,7 @@
 'use strict';
 
-var xUtils = require('xcraft-core-utils');
-
 var listenerAxon = function (commands, events, busClient) {
+  const {camelcasify} = require('xcraft-core-utils/lib/string.js');
   const xLog = require('xcraft-core-log')('materials');
 
   xLog.verb('Xcraft reaction listening using Xcraft-busclient...');
@@ -19,7 +18,7 @@ var listenerAxon = function (commands, events, busClient) {
 
     var action;
     topic = topic.replace(/[^:]*::/, '');
-    action = xUtils.string.camelcasify(topic);
+    action = camelcasify(topic);
     if (events[action]) {
       events[action](msg.data);
     }
